@@ -1,7 +1,8 @@
 import 'package:apiflutter/pages/auth/login_screen.dart';
-import 'package:apiflutter/pages/home_screen.dart';
+import 'package:apiflutter/pages/menu_screen.dart';
 import 'package:apiflutter/services/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:apiflutter/pages/posts/list_post_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Auth Example',
+      debugShowCheckedModeBanner: false,
+      title: 'Belajar Flutter',
       home: AuthCheck(),
     );
   }
@@ -46,7 +48,7 @@ class _AuthCheckState extends State<AuthCheck> {
             body: Center(child: CircularProgressIndicator()),
           );
         } else if (snapshot.hasData && snapshot.data == true) {
-          return HomeScreen();
+          return MenuScreen();
         } else {
           return LoginScreen();
         }
@@ -54,28 +56,3 @@ class _AuthCheckState extends State<AuthCheck> {
     );
   }
 }
-
-
-// import 'package:apiflutter/pages/photo/list_photo_screen.dart';
-// import 'package:apiflutter/pages/posts/list_post_screen.dart';
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('Fatch Data'),
-//         ),
-//         body: ListPhotoScreen(),
-//       ),
-//     );
-//   }
-// }
